@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AND Gate</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #35424a;
+        }
+
+        .container {
+            background: white;
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .inputs {
+            margin: 20px;
+        }
+
+        .input-button {
+            background: #35424a;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .input-button:hover {
+            background: #555;
+        }
+
+        .run-button {
+            background: #35424a;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .run-button:hover {
+            background: #555;
+        }
+
+        .gate {
+            margin: 30px auto;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #35424a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            background: #555;
+        }
+
+        svg {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>AND Gate</h1>
+
+        <p>
+            Click the input buttons to change them between 0 and 1.
+        </p>
+        <div class="inputs">
+
+            <button class="input-button" onclick="changeA()">
+                Input A: <span id="inputA">0</span>
+            </button>
+
+            <button class="input-button" onclick="changeB()">
+                Input B: <span id="inputB">0</span>
+            </button>
+
+        </div>
+
+        <button class="run-button" onclick="runGate()">
+            ▶ Run
+        </button>
+
+        <div class="gate">
+
+            <svg width="600" height="300" viewBox="0 0 600 300">
+
+                <line x1="50" y1="90"
+                      x2="200" y2="90"
+                      stroke="black"
+                      stroke-width="5"/>
+
+                <line x1="50" y1="210"
+                      x2="200" y2="210"
+                      stroke="black"
+                      stroke-width="5"/>
+
+                <path d="M200 60
+                         L300 60
+                         C400 60 400 240 300 240
+                         L200 240
+                         Z"
+                      fill="white"
+                      stroke="black"
+                      stroke-width="5"/>
+
+                <line x1="400" y1="150"
+                      x2="550" y2="150"
+                      stroke="black"
+                      stroke-width="5"/>
+
+                <text x="25" y="98"
+                      font-size="24">A</text>
+
+                <text x="25" y="218"
+                      font-size="24">B</text>
+
+                <text x="255" y="160"
+                      font-size="28"
+                      font-weight="bold">
+                    AND
+                </text>
+
+                <text x="470" y="140"
+                      font-size="20">
+                    Output
+                </text>
+
+                <text id="valueA"
+                      x="75"
+                      y="80"
+                      font-size="24"
+                      font-weight="bold">
+                    0
+                </text>
+
+                <text id="valueB"
+                      x="75"
+                      y="200"
+                      font-size="24"
+                      font-weight="bold">
+                    0
+                </text>
+
+                <text id="valueOutput"
+                      x="520"
+                      y="140"
+                      font-size="24"
+                      font-weight="bold">
+                    0
+                </text>
+
+            </svg>
+
+        </div>
+
+        <div class="result" id="result">
+            Output: 0
+        </div>
+
+        <p id="message">
+            Click the inputs and then click Run.
+        </p>
+        <a href="projects.html" class="back-link">
+            ← Back to Projects
+        </a>
+
+    </div>
+
+
+    <script>
+        let A = 0;
+        let B = 0;
+
+        function changeA() {
+
+            if (A == 0) {
+                A = 1;
+            } else {
+                A = 0;
+            }
+
+            document.getElementById("inputA").textContent = A;
+
+        }
+        function changeB() {
+
+            if (B == 0) {
+                B = 1;
+            } else {
+                B = 0;
+            }
+
+            document.getElementById("inputB").textContent = B;
+
+        }
+        function runGate() {
+
+            let output;
+
+            if (A == 1 && B == 1) {
+                output = 1;
+            } else {
+                output = 0;
+            }
+			
+            document.getElementById("valueA").textContent = A;
+
+            document.getElementById("valueB").textContent = B;
+
+            document.getElementById("valueOutput").textContent = output;
+
+
+            document.getElementById("result").textContent =
+                "Output: " + output;
+
+            if (output == 1) {
+
+                document.getElementById("message").textContent =
+                    "Both inputs are 1, so the AND gate outputs 1.";
+
+            } else {
+
+                document.getElementById("message").textContent =
+                    "At least one input is 0, so the AND gate outputs 0.";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
+

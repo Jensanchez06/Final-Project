@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>The NOT Gate</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Header */
+        .header {
+            background-color: #0F766E;
+            color: white;
+            padding: 25px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        /* Main area */
+        .content {
+            padding: 30px;
+        }
+
+        /* Button */
+        button {
+            background-color: white;
+            border: 2px solid #0F766E;
+            color: #0F766E;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        button:hover {
+            background-color: #14B8A6;
+            color: white;
+        }
+
+        /* Gate area */
+        .gate-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 80px auto;
+        }
+
+        /* Numbers */
+        .number {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        /* Wires */
+        .wire {
+            width: 100px;
+            height: 5px;
+            background-color: #555;
+            transition: 0.5s;
+        }
+
+        /* Gate */
+        .gate {
+            width: 0;
+            height: 0;
+
+            border-top: 45px solid transparent;
+            border-bottom: 45px solid transparent;
+            border-left: 90px solid #14B8A6;
+
+            position: relative;
+        }
+
+        /* NOT text */
+        .gate-text {
+            position: absolute;
+            right: 20px;
+            top: -10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Circle */
+        .circle {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+
+            background-color: white;
+            border: 3px solid #0F766E;
+
+            position: absolute;
+            right: -10px;
+            top: -9px;
+        }
+
+        /* Lights */
+        .light {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+
+            background-color: #777;
+
+            margin: 0 5px;
+
+            transition: 0.5s;
+        }
+
+        /* ON light */
+        .light.on {
+            background-color: #14B8A6;
+            box-shadow: 0 0 20px #14B8A6;
+
+            animation: glow 0.8s infinite alternate;
+        }
+
+        /* Animation */
+        @keyframes glow {
+
+            from {
+                box-shadow: 0 0 5px #14B8A6;
+            }
+
+            to {
+                box-shadow: 0 0 25px #14B8A6;
+            }
+
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0F766E;
+            color: white;
+            padding: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>The NOT Gate</h1>
+
+    </div>
+
+
+    <div class="content">
+
+        <p>
+            The NOT gate reverses the input.
+        </p>
+
+
+        <!-- Button -->
+
+        <button id="toggleButton" onclick="toggleGate()">
+            NOT OFF
+        </button>
+
+
+        <!-- Gate -->
+
+        <div class="gate-area">
+
+            <!-- Input -->
+
+            <span class="number" id="inputNumber">0</span>
+
+            <div id="inputLight" class="light"></div>
+
+            <div id="inputWire" class="wire"></div>
+
+
+            <!-- NOT Gate -->
+
+            <div class="gate">
+
+                <div class="gate-text">
+                    NOT
+                </div>
+
+                <div class="circle"></div>
+
+            </div>
+
+
+            <!-- Output -->
+
+            <div id="outputWire" class="wire"></div>
+
+            <div id="outputLight" class="light on"></div>
+
+            <span class="number" id="outputNumber">1</span>
+
+        </div>
+
+
+        <h2 id="result">
+            0 → NOT → 1
+        </h2>
+
+
+    </div>
+	
+    </a>
+
+
+
+    <script>
+
+        let input = 0;
+
+
+        function toggleGate() {
+
+            if (input == 0) {
+
+                // Change input to 1
+                input = 1;
+
+                document.getElementById("inputNumber").innerHTML = "1";
+
+                // NOT changes 1 to 0
+                document.getElementById("outputNumber").innerHTML = "0";
+
+                // Turn input ON
+                document.getElementById("inputLight").classList.add("on");
+
+                // Turn output OFF
+                document.getElementById("outputLight").classList.remove("on");
+
+                // Change button
+                document.getElementById("toggleButton").innerHTML =
+                    "NOT ON";
+
+                // Change result
+                document.getElementById("result").innerHTML =
+                    "1 → NOT → 0";
+
+            }
+
+            else {
+
+                // Change input to 0
+                input = 0;
+
+                document.getElementById("inputNumber").innerHTML = "0";
+
+                // NOT changes 0 to 1
+                document.getElementById("outputNumber").innerHTML = "1";
+
+                // Turn input OFF
+                document.getElementById("inputLight").classList.remove("on");
+
+                // Turn output ON
+                document.getElementById("outputLight").classList.add("on");
+
+                // Change button
+                document.getElementById("toggleButton").innerHTML =
+                    "NOT OFF";
+
+                // Change result
+                document.getElementById("result").innerHTML =
+                    "0 → NOT → 1";
+
+            }
+
+        }
+
+
+    </script>
+	<a href="Projects.html" target="content-frame"</a>>Back to Projects</a></h3>
+	 
+
+</body>
+
+</html>

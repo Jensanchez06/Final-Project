@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Binary to Hexadecimal Converter</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f1f5;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            width: 750px;
+            max-width: 95%;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #164E63;
+            margin-bottom: 25px;
+        }
+
+        /* IMAGE AND INPUT SIDE BY SIDE */
+
+        .converter-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+        }
+
+        /* IMAGE */
+
+        .converter-image img {
+            width: 300px;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* INPUT AREA */
+
+        .input-area {
+            width: 280px;
+        }
+
+        .input-area h2 {
+            color: #0F766E;
+            font-size: 20px;
+        }
+
+        input {
+            width: 200px;
+            padding: 10px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #999;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 12px;
+            font-size: 16px;
+            background-color: #0F766E;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #164E63;
+        }
+
+        /* HEXADECIMAL OUTPUT */
+
+        .output {
+            margin: 25px auto 0;
+            width: 350px;
+            background-color: #f2f2f2;
+            border: 1px solid #999;
+            border-radius: 7px;
+            padding: 12px;
+        }
+
+        .output h2 {
+            color: #164E63;
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        #hexValue {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0F766E;
+            min-height: 35px;
+        }
+
+        #message {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* BACK BUTTON */
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            background-color: #0F766E;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* SMALL SCREEN */
+
+        @media (max-width: 650px) {
+
+            .converter-area {
+                flex-direction: column;
+            }
+
+            .converter-image img {
+                width: 250px;
+                height: 170px;
+            }
+
+            .output {
+                width: 280px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>Binary to Hexadecimal Converter</h1>
+
+
+    <!-- IMAGE AND INPUT -->
+
+    <div class="converter-area">
+
+        <!-- YOUR IMAGE -->
+
+        <div class="converter-image">
+
+            <img src="binohex.jpg" alt="Binary to Hexadecimal">
+
+        </div>
+
+
+        <!-- INPUT -->
+
+        <div class="input-area">
+
+            <h2>Enter any 4 digit binary number</h2>
+
+            <input
+                type="text"
+                id="binaryInput"
+                placeholder="Example: 1010"
+                maxlength="4"
+            >
+
+            <br>
+
+            <button onclick="convertBinary()">
+                Convert
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- HEXADECIMAL VALUE AT THE BOTTOM -->
+
+    <div class="output">
+
+        <h2>Hexidecimal Value</h2>
+
+        <div id="hexValue"></div>
+
+        <p id="message"></p>
+
+    </div>
+
+
+    <!-- BACK TO PROJECTS -->
+
+    <a href="projects.html" class="back">
+        ← Back to Projects
+    </a>
+
+</div>
+
+
+<script>
+
+function convertBinary() {
+
+    let binary = document.getElementById("binaryInput").value.trim();
+
+    let hexValue = document.getElementById("hexValue");
+
+    let message = document.getElementById("message");
+
+
+    // Clear previous result
+
+    hexValue.textContent = "";
+
+    message.textContent = "";
+
+
+    // Check if exactly 4 binary digits were entered
+
+    if (!/^[01]{4}$/.test(binary)) {
+
+        message.textContent =
+            "Please enter exactly 4 binary digits.";
+
+        return;
+    }
+
+
+    // Convert binary to decimal
+
+    let decimal = parseInt(binary, 2);
+
+
+    // Convert decimal to hexadecimal
+
+    let hexadecimal = decimal
+        .toString(16)
+        .toUpperCase();
+
+
+    // Show hexadecimal result
+
+    hexValue.textContent = hexadecimal;
+
+}
+
+</script>
+
+
+</body>
+
+</html>

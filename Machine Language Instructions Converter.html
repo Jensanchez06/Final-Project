@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Simple Machine Language</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #e8f1f5;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            width: 1000px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #28536b;
+            margin-bottom: 25px;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 35px;
+        }
+
+        .table-section {
+            width: 680px;
+        }
+
+        .table-section h2 {
+            color: #28536b;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #28536b;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        td {
+            border: 1px solid #9bb7c4;
+            padding: 9px;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eef6f9;
+        }
+
+        /* PURPLE HIGHLIGHT */
+
+        .highlight {
+            background-color: #9b59b6 !important;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* INSTRUCTIONS */
+
+        .commands {
+            width: 180px;
+            background-color: #d9edf4;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .commands h2 {
+            color: #28536b;
+            margin-top: 0;
+        }
+
+        .commands button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+            background-color: #28536b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .commands button:hover {
+            background-color: #3d7189;
+        }
+
+        /* RESULT */
+
+        #result {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #d9edf4;
+            border-radius: 8px;
+            color: #28536b;
+            font-weight: bold;
+        }
+
+        /* BACK BUTTON */
+
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #28536b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back:hover {
+            background-color: #3d7189;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Appendix C: A Simple Machine Language</h1>
+
+    <div class="main">
+        <div class="table-section">
+
+            <h2>Machine Language Chart</h2>
+
+            <table id="machineTable">
+
+                <tr>
+                    <th>Op-code</th>
+                    <th>Operand</th>
+                    <th>Description</th>
+                </tr>
+
+                <tr id="op1">
+                    <td>1</td>
+                    <td>RXY</td>
+                    <td id="desc1">LOAD reg. R from cell XY.</td>
+                </tr>
+
+                <tr id="op2">
+                    <td>2</td>
+                    <td>RXY</td>
+                    <td>LOAD reg. R with XY.</td>
+                </tr>
+
+                <tr id="op3">
+                    <td>3</td>
+                    <td>RXY</td>
+                    <td id="desc3">STORE reg. R at XY.</td>
+                </tr>
+
+                <tr id="op4">
+                    <td>4</td>
+                    <td>ORS</td>
+                    <td id="desc4">MOVE R to S.</td>
+                </tr>
+
+                <tr id="op5">
+                    <td>5</td>
+                    <td>RST</td>
+                    <td id="desc5">ADD S and T into R. (2's comp.)</td>
+                </tr>
+
+                <tr id="op6">
+                    <td>6</td>
+                    <td>RST</td>
+                    <td>ADD S and T into R. (floating pt.)</td>
+                </tr>
+
+                <tr id="op7">
+                    <td>7</td>
+                    <td>RST</td>
+                    <td>OR S and T into R.</td>
+                </tr>
+
+                <tr id="op8">
+                    <td>8</td>
+                    <td>RST</td>
+                    <td>AND S and T into R.</td>
+                </tr>
+
+                <tr id="op9">
+                    <td>9</td>
+                    <td>RST</td>
+                    <td>XOR S and T into R.</td>
+                </tr>
+
+                <tr id="opA">
+                    <td>A</td>
+                    <td>ROX</td>
+                    <td>ROTATE reg. R X times.</td>
+                </tr>
+
+                <tr id="opB">
+                    <td>B</td>
+                    <td>RXY</td>
+                    <td>JUMP to XY if R = reg. 0.</td>
+                </tr>
+
+                <tr id="opC">
+                    <td>C</td>
+                    <td>000</td>
+                    <td id="descC">HALT</td>
+                </tr>
+
+            </table>
+
+        </div>
+        <div class="commands">
+
+            <h2>Instructions</h2>
+
+            <button onclick="selectInstruction('156C')">
+                156C
+            </button>
+
+            <button onclick="selectInstruction('166D')">
+                166D
+            </button>
+
+            <button onclick="selectInstruction('5056')">
+                5056
+            </button>
+
+            <button onclick="selectInstruction('306E')">
+                306E
+            </button>
+
+            <button onclick="selectInstruction('C000')">
+                C000
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="result">
+        Click an instruction to see what it means.
+
+</div>
+
+
+<script>
+
+function selectInstruction(instruction) {
+    let rows = document.querySelectorAll("#machineTable tr");
+
+    rows.forEach(function(row) {
+        row.classList.remove("highlight");
+    });
+    if (instruction == "156C") {
+
+        document.getElementById("op1")
+        .classList.add("highlight");
+
+        document.getElementById("desc1").innerHTML =
+            "LOAD reg. 5 from cell C6.";
+
+        document.getElementById("result").innerHTML =
+            "156C → LOAD register 5 from cell C6.";
+
+    }
+
+    else if (instruction == "166D") {
+
+        document.getElementById("op1")
+        .classList.add("highlight");
+
+        document.getElementById("desc1").innerHTML =
+            "LOAD reg. 6 from cell 6D.";
+
+        document.getElementById("result").innerHTML =
+            "166D → LOAD register 6 from cell 6D.";
+
+    }
+
+    else if (instruction == "5056") {
+
+        document.getElementById("op5")
+        .classList.add("highlight");
+
+        document.getElementById("desc5").innerHTML =
+            "ADD 5 and 6 into 0. (2's comp.)";
+
+        document.getElementById("result").innerHTML =
+            "5056 → ADD registers 5 and 6 into register 0.";
+
+    }
+    else if (instruction == "306E") {
+
+        document.getElementById("op3")
+        .classList.add("highlight");
+
+        document.getElementById("desc3").innerHTML =
+            "STORE reg. 0 at 6E.";
+
+        document.getElementById("result").innerHTML =
+            "306E → STORE register 0 at cell 6E.";
+
+    }
+	
+    else if (instruction == "C000") {
+
+        document.getElementById("opC")
+        .classList.add("highlight");
+
+        document.getElementById("descC").innerHTML =
+            "HALT";
+
+        document.getElementById("result").innerHTML =
+            "C000 → HALT the program.";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

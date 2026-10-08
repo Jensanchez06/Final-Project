@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>ASCII Converter</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #e8f1f5;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            width: 1000px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #28536b;
+            margin-bottom: 25px;
+        }
+
+        /* PUTS TABLE AND CONVERTER SIDE BY SIDE */
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        /* ASCII TABLE */
+
+        .table-section {
+            width: 600px;
+        }
+
+        .table-section h2 {
+            color: #28536b;
+            font-size: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #9bb7c4;
+            padding: 3px;
+            font-size: 12px;
+        }
+
+        th {
+            background-color: #28536b;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eef6f9;
+        }
+
+        /* CONVERTER */
+
+        .converter {
+            width: 250px;
+            background-color: #d9edf4;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .converter h2 {
+            color: #28536b;
+            font-size: 19px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 170px;
+            text-align: center;
+            border: 1px solid #9bb7c4;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 16px;
+            background-color: #28536b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #3d7189;
+        }
+
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            color: #28536b;
+            margin-top: 20px;
+        }
+
+        /* BACK BUTTON */
+
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #28536b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back:hover {
+            background-color: #3d7189;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>ASCII Converter</h1>
+
+
+    <div class="content">
+
+
+        <!-- ASCII TABLE -->
+
+        <div class="table-section">
+
+            <h2>ASCII Table</h2>
+
+            <table>
+
+                <tr>
+                    <th>Decimal</th>
+                    <th>Hex</th>
+                    <th>Char</th>
+                    <th>ASCII</th>
+                </tr>
+
+                <tr><td>0</td><td>00</td><td>NUL</td><td>Null</td></tr>
+                <tr><td>1</td><td>01</td><td>SOH</td><td>Start of Heading</td></tr>
+                <tr><td>2</td><td>02</td><td>STX</td><td>Start of Text</td></tr>
+                <tr><td>3</td><td>03</td><td>ETX</td><td>End of Text</td></tr>
+                <tr><td>4</td><td>04</td><td>EOT</td><td>End of Transmission</td></tr>
+                <tr><td>5</td><td>05</td><td>ENQ</td><td>Enquiry</td></tr>
+                <tr><td>6</td><td>06</td><td>ACK</td><td>Acknowledge</td></tr>
+                <tr><td>7</td><td>07</td><td>BEL</td><td>Bell</td></tr>
+                <tr><td>8</td><td>08</td><td>BS</td><td>Backspace</td></tr>
+                <tr><td>9</td><td>09</td><td>TAB</td><td>Tab</td></tr>
+                <tr><td>10</td><td>0A</td><td>LF</td><td>Line Feed</td></tr>
+                <tr><td>11</td><td>0B</td><td>VT</td><td>Vertical Tab</td></tr>
+                <tr><td>12</td><td>0C</td><td>FF</td><td>Form Feed</td></tr>
+                <tr><td>13</td><td>0D</td><td>CR</td><td>Carriage Return</td></tr>
+                <tr><td>14</td><td>0E</td><td>SO</td><td>Shift Out</td></tr>
+                <tr><td>15</td><td>0F</td><td>SI</td><td>Shift In</td></tr>
+                <tr><td>16</td><td>10</td><td>DLE</td><td>Data Link Escape</td></tr>
+                <tr><td>17</td><td>11</td><td>DC1</td><td>Device Control 1</td></tr>
+                <tr><td>18</td><td>12</td><td>DC2</td><td>Device Control 2</td></tr>
+                <tr><td>19</td><td>13</td><td>DC3</td><td>Device Control 3</td></tr>
+                <tr><td>20</td><td>14</td><td>DC4</td><td>Device Control 4</td></tr>
+
+                <tr><td>32</td><td>20</td><td>Space</td><td>Space</td></tr>
+                <tr><td>33</td><td>21</td><td>!</td><td>Exclamation</td></tr>
+                <tr><td>34</td><td>22</td><td>"</td><td>Quotation</td></tr>
+                <tr><td>35</td><td>23</td><td>#</td><td>Number Sign</td></tr>
+                <tr><td>36</td><td>24</td><td>$</td><td>Dollar Sign</td></tr>
+                <tr><td>37</td><td>25</td><td>%</td><td>Percent</td></tr>
+                <tr><td>38</td><td>26</td><td>&amp;</td><td>Ampersand</td></tr>
+                <tr><td>39</td><td>27</td><td>'</td><td>Apostrophe</td></tr>
+                <tr><td>40</td><td>28</td><td>(</td><td>Left Parenthesis</td></tr>
+                <tr><td>41</td><td>29</td><td>)</td><td>Right Parenthesis</td></tr>
+                <tr><td>42</td><td>2A</td><td>*</td><td>Asterisk</td></tr>
+                <tr><td>43</td><td>2B</td><td>+</td><td>Plus</td></tr>
+                <tr><td>44</td><td>2C</td><td>,</td><td>Comma</td></tr>
+                <tr><td>45</td><td>2D</td><td>-</td><td>Hyphen</td></tr>
+                <tr><td>46</td><td>2E</td><td>.</td><td>Period</td></tr>
+                <tr><td>47</td><td>2F</td><td>/</td><td>Slash</td></tr>
+
+                <tr><td>48</td><td>30</td><td>0</td><td>Zero</td></tr>
+                <tr><td>49</td><td>31</td><td>1</td><td>One</td></tr>
+                <tr><td>50</td><td>32</td><td>2</td><td>Two</td></tr>
+                <tr><td>51</td><td>33</td><td>3</td><td>Three</td></tr>
+                <tr><td>52</td><td>34</td><td>4</td><td>Four</td></tr>
+                <tr><td>53</td><td>35</td><td>5</td><td>Five</td></tr>
+                <tr><td>54</td><td>36</td><td>6</td><td>Six</td></tr>
+                <tr><td>55</td><td>37</td><td>7</td><td>Seven</td></tr>
+                <tr><td>56</td><td>38</td><td>8</td><td>Eight</td></tr>
+                <tr><td>57</td><td>39</td><td>9</td><td>Nine</td></tr>
+
+                <tr><td>65</td><td>41</td><td>A</td><td>Capital A</td></tr>
+                <tr><td>66</td><td>42</td><td>B</td><td>Capital B</td></tr>
+                <tr><td>67</td><td>43</td><td>C</td><td>Capital C</td></tr>
+                <tr><td>68</td><td>44</td><td>D</td><td>Capital D</td></tr>
+                <tr><td>69</td><td>45</td><td>E</td><td>Capital E</td></tr>
+                <tr><td>70</td><td>46</td><td>F</td><td>Capital F</td></tr>
+                <tr><td>71</td><td>47</td><td>G</td><td>Capital G</td></tr>
+                <tr><td>72</td><td>48</td><td>H</td><td>Capital H</td></tr>
+                <tr><td>73</td><td>49</td><td>I</td><td>Capital I</td></tr>
+                <tr><td>74</td><td>4A</td><td>J</td><td>Capital J</td></tr>
+                <tr><td>75</td><td>4B</td><td>K</td><td>Capital K</td></tr>
+                <tr><td>76</td><td>4C</td><td>L</td><td>Capital L</td></tr>
+                <tr><td>77</td><td>4D</td><td>M</td><td>Capital M</td></tr>
+                <tr><td>78</td><td>4E</td><td>N</td><td>Capital N</td></tr>
+                <tr><td>79</td><td>4F</td><td>O</td><td>Capital O</td></tr>
+                <tr><td>80</td><td>50</td><td>P</td><td>Capital P</td></tr>
+                <tr><td>81</td><td>51</td><td>Q</td><td>Capital Q</td></tr>
+                <tr><td>82</td><td>52</td><td>R</td><td>Capital R</td></tr>
+                <tr><td>83</td><td>53</td><td>S</td><td>Capital S</td></tr>
+                <tr><td>84</td><td>54</td><td>T</td><td>Capital T</td></tr>
+                <tr><td>85</td><td>55</td><td>U</td><td>Capital U</td></tr>
+                <tr><td>86</td><td>56</td><td>V</td><td>Capital V</td></tr>
+                <tr><td>87</td><td>57</td><td>W</td><td>Capital W</td></tr>
+                <tr><td>88</td><td>58</td><td>X</td><td>Capital X</td></tr>
+                <tr><td>89</td><td>59</td><td>Y</td><td>Capital Y</td></tr>
+                <tr><td>90</td><td>5A</td><td>Z</td><td>Capital Z</td></tr>
+
+                <tr><td>97</td><td>61</td><td>a</td><td>Lowercase a</td></tr>
+                <tr><td>98</td><td>62</td><td>b</td><td>Lowercase b</td></tr>
+                <tr><td>99</td><td>63</td><td>c</td><td>Lowercase c</td></tr>
+                <tr><td>100</td><td>64</td><td>d</td><td>Lowercase d</td></tr>
+                <tr><td>101</td><td>65</td><td>e</td><td>Lowercase e</td></tr>
+                <tr><td>102</td><td>66</td><td>f</td><td>Lowercase f</td></tr>
+                <tr><td>103</td><td>67</td><td>g</td><td>Lowercase g</td></tr>
+                <tr><td>104</td><td>68</td><td>h</td><td>Lowercase h</td></tr>
+                <tr><td>105</td><td>69</td><td>i</td><td>Lowercase i</td></tr>
+                <tr><td>106</td><td>6A</td><td>j</td><td>Lowercase j</td></tr>
+                <tr><td>107</td><td>6B</td><td>k</td><td>Lowercase k</td></tr>
+                <tr><td>108</td><td>6C</td><td>l</td><td>Lowercase l</td></tr>
+                <tr><td>109</td><td>6D</td><td>m</td><td>Lowercase m</td></tr>
+                <tr><td>110</td><td>6E</td><td>n</td><td>Lowercase n</td></tr>
+                <tr><td>111</td><td>6F</td><td>o</td><td>Lowercase o</td></tr>
+                <tr><td>112</td><td>70</td><td>p</td><td>Lowercase p</td></tr>
+                <tr><td>113</td><td>71</td><td>q</td><td>Lowercase q</td></tr>
+                <tr><td>114</td><td>72</td><td>r</td><td>Lowercase r</td></tr>
+                <tr><td>115</td><td>73</td><td>s</td><td>Lowercase s</td></tr>
+                <tr><td>116</td><td>74</td><td>t</td><td>Lowercase t</td></tr>
+                <tr><td>117</td><td>75</td><td>u</td><td>Lowercase u</td></tr>
+                <tr><td>118</td><td>76</td><td>v</td><td>Lowercase v</td></tr>
+                <tr><td>119</td><td>77</td><td>w</td><td>Lowercase w</td></tr>
+                <tr><td>120</td><td>78</td><td>x</td><td>Lowercase x</td></tr>
+                <tr><td>121</td><td>79</td><td>y</td><td>Lowercase y</td></tr>
+                <tr><td>122</td><td>7A</td><td>z</td><td>Lowercase z</td></tr>
+
+                <tr><td>127</td><td>7F</td><td>DEL</td><td>Delete</td></tr>
+
+            </table>
+
+        </div>
+
+
+        <!-- CONVERTER ON THE SIDE -->
+
+        <div class="converter">
+
+            <h2>ASCII Converter</h2>
+
+            <p>Enter any number from 0 - 127</p>
+
+            <input
+                type="number"
+                id="asciiInput"
+                min="0"
+                max="127"
+                placeholder="Enter number">
+
+            <br>
+
+            <button onclick="convertASCII()">
+                Convert
+            </button>
+
+            <div id="result">
+                ASCII Value: -
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BACK TO PROJECTS -->
+
+    <a href="projects.html" class="back">
+        ← Back to Projects
+    </a>
+
+</div>
+
+
+<script>
+
+    function convertASCII() {
+
+        let number = document.getElementById("asciiInput").value;
+
+        number = Number(number);
+
+        if (number < 0 || number > 127 || isNaN(number)) {
+
+            document.getElementById("result").innerHTML =
+                "Please enter a number from 0 - 127.";
+
+            return;
+        }
+
+        let character = String.fromCharCode(number);
+
+        document.getElementById("result").innerHTML =
+            "ASCII Value: " + character;
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
