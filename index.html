@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Foc Final Project</title>
+    <style>
+       
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; line-height: 1.9; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+        
+       
+        header { background:#164E63; color: #ffffff; padding: 20px; text-align: center; }
+        nav { background: #0F766E; padding: 10px; text-align: center; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        
+       
+        .container { display: flex; flex: 1; flex-wrap: wrap; }
+        main { flex: 3; padding: 20px; min-width: 300px; }
+        aside { flex: 1; background: #f4f4f4; padding: 20px; min-width: 200px; }
+        
+        footer { background: #164E63; color: white; text-align: center; padding: 15px; margin-top: auto; }
+		/* Styles the iframe window to take up the full area cleanly */
+        .embed-frame {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fundementals Final Project</h1>
+    </header>
+
+    <nav>
+      
+		<a href="Finall project.html" target="content-frame">Course</a> 
+        <a href="Projects.html" target="content-frame"
+		>Projects</a>
+        <a href="Concepts.html" target="content-frame"
+		>Concepts</a>
+        <a href="Data Base.html" target="content-frame"
+		>Data Base</a>
+		<a href="Documentations.html" target="content-frame"
+		>Documentations</a>
+		<a href="Index.html"> About Me</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            
+<iframe src="Finall project.html" name="content-frame" class="embed-frame">   
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+			
+
+
+        </main>
+		
+		
+		
+		
+		
+    </div>
+
+    <footer>
+        <p>Powered By Jenaae Sanchez</p>
+    </footer> 
+	<a href="Finall project.html" class="back-link">
+    ← Back to Presentation
+</a>
+
+</body>
+</html>
