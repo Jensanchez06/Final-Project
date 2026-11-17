@@ -171,28 +171,17 @@
             The NOT gate reverses the input.
         </p>
 
-
-        <!-- Button -->
-
         <button id="toggleButton" onclick="toggleGate()">
             NOT OFF
         </button>
 
-
-        <!-- Gate -->
-
         <div class="gate-area">
-
-            <!-- Input -->
 
             <span class="number" id="inputNumber">0</span>
 
             <div id="inputLight" class="light"></div>
 
             <div id="inputWire" class="wire"></div>
-
-
-            <!-- NOT Gate -->
 
             <div class="gate">
 
@@ -203,9 +192,6 @@
                 <div class="circle"></div>
 
             </div>
-
-
-            <!-- Output -->
 
             <div id="outputWire" class="wire"></div>
 
@@ -236,25 +222,19 @@
 
             if (input == 0) {
 
-                // Change input to 1
                 input = 1;
 
                 document.getElementById("inputNumber").innerHTML = "1";
 
-                // NOT changes 1 to 0
                 document.getElementById("outputNumber").innerHTML = "0";
 
-                // Turn input ON
                 document.getElementById("inputLight").classList.add("on");
 
-                // Turn output OFF
                 document.getElementById("outputLight").classList.remove("on");
 
-                // Change button
                 document.getElementById("toggleButton").innerHTML =
                     "NOT ON";
 
-                // Change result
                 document.getElementById("result").innerHTML =
                     "1 → NOT → 0";
 
@@ -262,25 +242,19 @@
 
             else {
 
-                // Change input to 0
                 input = 0;
 
                 document.getElementById("inputNumber").innerHTML = "0";
 
-                // NOT changes 0 to 1
                 document.getElementById("outputNumber").innerHTML = "1";
 
-                // Turn input OFF
                 document.getElementById("inputLight").classList.remove("on");
 
-                // Turn output ON
                 document.getElementById("outputLight").classList.add("on");
 
-                // Change button
                 document.getElementById("toggleButton").innerHTML =
                     "NOT OFF";
 
-                // Change result
                 document.getElementById("result").innerHTML =
                     "0 → NOT → 1";
 
@@ -290,9 +264,8 @@
 
 
     </script>
-	<a href="Projects.html" target="content-frame"</a>>Back to Projects</a></h3>
-	 
-
 </body>
-
+<a href="index.html">Back to Home</a></h3>
+</section>
+</center>
 </html>
