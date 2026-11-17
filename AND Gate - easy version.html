@@ -71,9 +71,6 @@
         Click an input combination to see the output.
     </p>
 
-
-    <!-- BUTTONS -->
-
     <button onclick="showResult(0, 0)">
         0 AND 0
     </button>
@@ -92,39 +89,25 @@
         1 AND 1
     </button>
 
-
-    <!-- RESULT -->
-
     <div id="result">
         Output: -
     </div>
-
-
-    <!-- AND GATE -->
-
+    
     <h2>AND Gate Illustration</h2>
 
     <div class="gate">
 
         <svg width="600" height="300">
-
-            <!-- Input A wire -->
-
+            
             <line x1="80" y1="80"
                   x2="220" y2="80"
                   stroke="black"
                   stroke-width="5"/>
 
-
-            <!-- Input B wire -->
-
             <line x1="80" y1="200"
                   x2="220" y2="200"
                   stroke="black"
                   stroke-width="5"/>
-
-
-            <!-- AND Gate -->
 
             <path d="
                 M220 50
@@ -135,18 +118,12 @@
                 fill="white"
                 stroke="black"
                 stroke-width="5"/>
-
-
-            <!-- Output wire -->
-
+            
             <line x1="430" y1="140"
                   x2="550" y2="140"
                   stroke="black"
                   stroke-width="5"/>
-
-
-            <!-- Input A number -->
-
+\
             <text id="numberA"
                   x="45"
                   y="88"
@@ -154,9 +131,6 @@
                   font-weight="bold">
                 -
             </text>
-
-
-            <!-- Input B number -->
 
             <text id="numberB"
                   x="45"
@@ -166,9 +140,6 @@
                 -
             </text>
 
-
-            <!-- Output number -->
-
             <text id="numberOutput"
                   x="510"
                   y="130"
@@ -176,9 +147,6 @@
                   font-weight="bold">
                 -
             </text>
-
-
-            <!-- A and B labels -->
 
             <text x="25"
                   y="55"
@@ -191,20 +159,14 @@
                   font-size="18">
                 B
             </text>
-
-
-            <!-- AND -->
-
+            
             <text x="270"
                   y="150"
                   font-size="25"
                   font-weight="bold">
                 AND
             </text>
-
-
-            <!-- OUTPUT -->
-
+            
             <text x="475"
                   y="110"
                   font-size="18">
@@ -220,9 +182,6 @@
         <b>AND Gate Rule:</b>
         Both inputs must be 1 for the output to be 1.
     </p>
-
-
-    <!-- BACK TO PROJECTS -->
 
     <a href="projects.html" class="back">
         ← Back to Projects
@@ -249,14 +208,8 @@
 
         }
 
-
-        // Show the result
-
         document.getElementById("result").innerHTML =
             "Output: " + output;
-
-
-        // Put the numbers on the AND gate
 
         document.getElementById("numberA").textContent = A;
 
