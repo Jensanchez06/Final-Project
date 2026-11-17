@@ -31,27 +31,18 @@
             color: #164E63;
             margin-bottom: 25px;
         }
-
-        /* IMAGE AND INPUT SIDE BY SIDE */
-
         .converter-area {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 35px;
         }
-
-        /* IMAGE */
-
         .converter-image img {
             width: 300px;
             height: 200px;
             object-fit: contain;
             border-radius: 8px;
         }
-
-        /* INPUT AREA */
-
         .input-area {
             width: 280px;
         }
@@ -156,22 +147,14 @@
 
     <h1>Binary to Hexadecimal Converter</h1>
 
-
-    <!-- IMAGE AND INPUT -->
-
     <div class="converter-area">
-
-        <!-- YOUR IMAGE -->
 
         <div class="converter-image">
 
             <img src="binohex.jpg" alt="Binary to Hexadecimal">
 
         </div>
-
-
-        <!-- INPUT -->
-
+        
         <div class="input-area">
 
             <h2>Enter any 4 digit binary number</h2>
@@ -193,9 +176,6 @@
 
     </div>
 
-
-    <!-- HEXADECIMAL VALUE AT THE BOTTOM -->
-
     <div class="output">
 
         <h2>Hexidecimal Value</h2>
@@ -206,16 +186,12 @@
 
     </div>
 
-
-    <!-- BACK TO PROJECTS -->
-
     <a href="projects.html" class="back">
         ← Back to Projects
     </a>
 
 </div>
-
-
+    
 <script>
 
 function convertBinary() {
@@ -226,15 +202,9 @@ function convertBinary() {
 
     let message = document.getElementById("message");
 
-
-    // Clear previous result
-
     hexValue.textContent = "";
 
     message.textContent = "";
-
-
-    // Check if exactly 4 binary digits were entered
 
     if (!/^[01]{4}$/.test(binary)) {
 
@@ -243,29 +213,16 @@ function convertBinary() {
 
         return;
     }
-
-
-    // Convert binary to decimal
-
     let decimal = parseInt(binary, 2);
-
-
-    // Convert decimal to hexadecimal
 
     let hexadecimal = decimal
         .toString(16)
         .toUpperCase();
-
-
-    // Show hexadecimal result
 
     hexValue.textContent = hexadecimal;
 
 }
 
 </script>
-
-
 </body>
-
 </html>
